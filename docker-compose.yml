@@ -11,7 +11,7 @@ services:
       - "8000:8000"
       - "443:443"
     depends_on:
-      #      - octane_fpm
+      - octane_fpm
       - octane_fpm_opcache
     dns:
       - 8.8.8.8
