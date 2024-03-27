@@ -15,11 +15,10 @@ Route::group(['prefix' => 'benchmark'], function () {
     });
     Route::get('/http-api', function (Request $request) {
         // This is a test to call an external API
-        $url = $request->get('url', 'https://api.coindesk.com/v1/bpi/currentprice.json');
-        $response = Http::get($url);
+        $url = $request->get('url', 'http://34.126.91.196:8005');
         return response()->json([
             'message' => "Called to $url",
-            'data' => $response->json(),
+            'data' => Http::get($url)->body(),
         ]);
     });
     Route::get('/complex-code', function () {

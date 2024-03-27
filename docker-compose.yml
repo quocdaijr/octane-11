@@ -106,6 +106,17 @@ services:
     networks:
       - octane-network
 
+  octane_whoami:
+    container_name: "whoami"
+    image: "containous/whoami"
+    ports:
+      - "8005:80"
+    dns:
+      - 8.8.8.8
+      - 4.4.4.4
+    networks:
+      - octane-network
+
 networks:
   octane-network:
     driver: bridge
